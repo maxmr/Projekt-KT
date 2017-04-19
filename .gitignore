@@ -250,3 +250,8 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/ESP/ESP/ESP.vcxproj
+/ESP/ESP/ESP.vcxproj.filters
+/ESP/ESP.sln
+/.gitattributes
+/ESP/ESP/__vm
