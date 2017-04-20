@@ -27,6 +27,9 @@
     <ClInclude Include="wifi_func.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FSM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ticker_func.cpp">
