@@ -10,9 +10,8 @@ int State_Machine(void)
 	{
 
 	}
-	else
+	else if (strcmp(str_ClientState, "END_GAME") == 0)
 	{
 
 	}
 }
-
