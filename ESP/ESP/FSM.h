@@ -20,5 +20,5 @@
 #define End 6
 #define Failmode7 
 
-int State_Machine(char str_ClientState[]);
+int State_Machine(void);
 
