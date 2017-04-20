@@ -5,7 +5,7 @@
 #include <SSD1306.h> // alias for `#include "SSD1306Wire.h"`
 
 const char* ssid = "Spieleserver2";
-const char* password = "GotchaWlan";
+const char* password = "Gotchawlan";
 const char* host = "10.11.12.1";
 const int Port = 8888;
 
