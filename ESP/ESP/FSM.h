@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef FSM_H
 #define FSM_H
 
@@ -7,6 +7,8 @@
 #include <Arduino.h>
 #else
 #include <WProgram.h>		//for older Arduino versions
+#endif
+
 #endif
 
 //States
