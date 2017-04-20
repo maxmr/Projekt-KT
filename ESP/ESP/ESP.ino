@@ -10,7 +10,7 @@ const char* host = "10.11.12.1";
 const int Port = 8888;
 
 //hallo phil
-//hallo max
+//hallo ma
 // Initialize the OLED display using Wire library test
 SSD1306  display(0x3c, SDA, SCL);  //Adaruit HUZZAH: GPIO 4 und 5
 
