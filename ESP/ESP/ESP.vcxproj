@@ -82,11 +82,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FSM.h" />
     <ClInclude Include="ticker_func.h" />
     <ClInclude Include="wifi_func.h" />
     <ClInclude Include="__vm\.ESP.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FSM.cpp" />
     <ClCompile Include="ticker_func.cpp" />
     <ClCompile Include="wifi_func.cpp" />
   </ItemGroup>
