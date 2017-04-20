@@ -82,7 +82,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FSM.h" />
     <ClInclude Include="ticker_func.h" />
     <ClInclude Include="wifi_func.h" />
     <ClInclude Include="__vm\.ESP.vsarduino.h" />
