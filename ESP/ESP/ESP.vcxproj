@@ -82,6 +82,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="images.h" />
     <ClInclude Include="oled_func.h" />
     <ClInclude Include="ticker_func.h" />
     <ClInclude Include="wifi_func.h" />

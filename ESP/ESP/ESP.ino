@@ -20,6 +20,7 @@ void setup()
 	display.init();
 	// display.flipScreenVertically();
 	display.setContrast(255);
+	display.setFont(ArialMT_Plain_10);
 
 	connect_wifi();
 	// client.setNoDelay(true);
