@@ -27,7 +27,7 @@ void setup()
 
 	// bind function to ticker tasks
 	ticker_get_RSSI.attach(0.5, get_RSSI);
-	ticker_update_oled.attach(1, update_oled);
+	ticker_update_oled.attach(0.5, update_oled);
 	ticker_tcp_send.attach_ms(150, send_tcp);
 	ticker_tcp_status.attach_ms(100, get_tcp_status);
 }
@@ -48,13 +48,14 @@ void loop()
 		RSSI_Str = String(RSSI_long);
 		RSSI_flag = 0;
 	}
-
+	/* verschoben in FSM
 	//update oled every 1sec
 	if (oled_flag == 1)
 	{
 		update_oled_wifidata();
 		oled_flag = 0;
 	}
+	*/   
 
 	//send tcp every 300ms
 	if (tcp_send_flag == 1)
@@ -63,6 +64,8 @@ void loop()
 		tcp_send_flag = 0;
 	}
 
+	// statemachine aufrufen
+	State_Machine();
 	// important! to give esp time to do background stuff
 	yield();
 
