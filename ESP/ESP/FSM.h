@@ -15,5 +15,5 @@
 //States
 
 
-int State_Machine(void);
+void State_Machine(void);
 
