@@ -1,8 +1,8 @@
 
-#include "oled_func.h"
+
 #include "ticker_func.h"
 #include "wifi_func.h"
-
+#include "oled_func.h"
 
 const char* ssid = "Spieleserver2";
 const char* password = "Gotchawlan";

@@ -10,8 +10,10 @@
 #endif
 #include <Wire.h>  
 #include <SSD1306.h> // alias for `#include "SSD1306Wire.h"`
+#
 
 #endif
 
 // Initialize the OLED display using Wire library test
 extern SSD1306  display;  //Adaruit HUZZAH: GPIO 4 und 5
+
