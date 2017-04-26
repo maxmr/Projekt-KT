@@ -17,7 +17,7 @@ muniStr[] = { "Munition:" }, pointStr[] = { "Points:" };
 void update_oled_active(void)
 {
 	display.clear();
-	display.setTextAlignment(TEXT_ALIGN_LEFT);
+	display.setTextAlignment(TEXT_ALIGN_LEFT);//hallo
 	display.setFont(ArialMT_Plain_10);
 	display.drawString(0, 0, playerStr);
 	display.drawString(35, 0, String(i_ClientID));
