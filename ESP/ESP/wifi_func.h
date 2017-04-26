@@ -43,7 +43,7 @@ extern char str_ServerState[14];
 extern int i_CountdownValue;
 extern char str_GameMode[30];
 extern char str_Team[10];
-extern int i_HitAck = 0;
+extern int i_HitAck;
 extern char str_GameScore[20];
 extern int i_ClientRank;
 extern char str_Won[20];

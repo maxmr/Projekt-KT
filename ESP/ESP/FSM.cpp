@@ -1,5 +1,6 @@
 #include "FSM.h"
-
+#include "wifi_func.h" 
+#include"ticker_func.h"
 
 void State_Machine(void)
 {
