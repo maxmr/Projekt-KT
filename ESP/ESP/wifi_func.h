@@ -49,3 +49,5 @@ extern int i_ClientRank;
 extern char str_Won[20];
 extern int i_ClientPoints;
 extern char str_KD[10];
+extern char str_GameClock[7];
+extern int i_ClientLife;

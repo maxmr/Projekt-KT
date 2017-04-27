@@ -31,6 +31,8 @@ int i_ClientRank = 0;
 char str_Won[20] = "X";
 int i_ClientPoints = 0;
 char str_KD[10] = "X";
+char str_GameClock[7] = "00:00";
+int i_ClientLife = 0;
 
 
 
@@ -116,11 +118,7 @@ void parse_receive_string(String tcp_receive)
 
 			p_str = strtok_r(NULL, "_", &saveptr);
 			if (p_str != NULL)
-				strcpy(str_Team, p_str);			//get Team
-
-			p_str = strtok_r(NULL, "_", &saveptr);
-			if (p_str != NULL)
-				i_HitAck = atoi(p_str);		//get HitAcknowledge
+				strcpy(str_GameClock, p_str);			//get GameClock
 
 			p_str = strtok_r(NULL, "_", &saveptr);
 			if (p_str != NULL)
@@ -128,11 +126,20 @@ void parse_receive_string(String tcp_receive)
 
 			p_str = strtok_r(NULL, "_", &saveptr);
 			if (p_str != NULL)
-				i_ClientRank = atoi(p_str);		// get Client Rank
+				strcpy(str_Won, p_str);			//get Won Information
+
 
 			p_str = strtok_r(NULL, "_", &saveptr);
 			if (p_str != NULL)
-				strcpy(str_Won, p_str);			//get Won Information
+				strcpy(str_Team, p_str);			//get Team
+
+			p_str = strtok_r(NULL, "_", &saveptr);
+			if (p_str != NULL)
+				i_ClientLife = atoi(p_str);			//get ClientLife
+
+			p_str = strtok_r(NULL, "_", &saveptr);
+			if (p_str != NULL)
+				i_ClientRank = atoi(p_str);		// get Client Rank
 
 			p_str = strtok_r(NULL, "_", &saveptr);
 			if (p_str != NULL)
@@ -141,6 +148,10 @@ void parse_receive_string(String tcp_receive)
 			p_str = strtok_r(NULL, "_", &saveptr);
 			if (p_str != NULL)
 				strcpy(str_KD, p_str);			//get Kill Death Ratio
+
+			p_str = strtok_r(NULL, "_", &saveptr);
+			if (p_str != NULL)
+				i_HitAck = atoi(p_str);		//get HitAcknowledge
 
 			p_str = strtok_r(NULL, "_", &saveptr);
 			if (p_str != NULL && strcmp(p_str, "END") == 0)

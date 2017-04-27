@@ -1,6 +1,7 @@
 #include "FSM.h"
 #include "wifi_func.h" 
 #include"ticker_func.h"
+#include "oled_func.h"
 
 void State_Machine(void)
 {
@@ -27,11 +28,11 @@ void State_Machine(void)
 		{
 			if (i_GotHit != 0)
 			{
-				//update_oled_hit();
+				update_oled_hit();
 			}
 			else
 			{
-				//update_oled_active();
+				update_oled_active();
 			}
 			oled_flag = 0;
 		}
