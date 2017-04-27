@@ -1,17 +1,16 @@
 
+
 #include "ticker_func.h"
 #include "wifi_func.h"
-#include <Wire.h>  // Only needed for Arduino 1.6.5 and earlier
-#include <SSD1306.h> // alias for `#include "SSD1306Wire.h"`
+#include "oled_func.h"
 
 const char* ssid = "Spieleserver2";
-const char* password = "GotchaWlan";
+const char* password = "Gotchawlan";
 const char* host = "10.11.12.1";
 const int Port = 8888;
 
 
-// Initialize the OLED display using Wire library test
-SSD1306  display(0x3c, SDA, SCL);  //Adaruit HUZZAH: GPIO 4 und 5
+
 
 void setup()
 {
@@ -21,6 +20,7 @@ void setup()
 	display.init();
 	// display.flipScreenVertically();
 	display.setContrast(255);
+	display.setFont(ArialMT_Plain_10);
 
 	connect_wifi();
 	// client.setNoDelay(true);

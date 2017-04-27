@@ -27,10 +27,7 @@
     <ClInclude Include="wifi_func.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="oled_func.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="images.h">
+    <ClInclude Include="FSM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,7 +38,7 @@
     <ClCompile Include="wifi_func.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="oled_func.cpp">
+    <ClCompile Include="FSM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
