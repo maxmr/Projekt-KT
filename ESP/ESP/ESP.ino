@@ -5,7 +5,7 @@
 
 const char* ssid = "Spieleserver2";
 const char* password = "Gotchawlan";
-const char* host = "10.11.12.1";
+const char* host = "192.168.137.1";
 const int Port = 8888;
 
 
@@ -15,6 +15,7 @@ void setup()
 {
 	Serial.begin(115200);
 	delay(10);
+	pinMode(16, INPUT);
 
 	display.init();
 	// display.flipScreenVertically();
@@ -67,6 +68,13 @@ void loop()
 	State_Machine();
 	// important! to give esp time to do background stuff
 	yield();
+	if (digitalRead(16) == HIGH)
+	{
+		i_GotHit = 1;
+		i_GotHit_by = 3;
+		hit_timer = 1;
+		ticker_hit.attach(1,got_hit);
+	}
 
 
 }

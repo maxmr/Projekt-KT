@@ -16,4 +16,4 @@
 
 
 void State_Machine(void);
-
+extern int hit_timer;

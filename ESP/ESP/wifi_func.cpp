@@ -21,7 +21,7 @@ const int i_ClientID = 1;
 char str_ClientState[14] = "PRE-GAME";
 int i_GotHit = 0;
 int i_GotHit_by = 0;
-char str_ServerState[14] = "X";
+char str_ServerState[14] = "PRE-GAME";
 int i_CountdownValue;
 char str_GameMode[30] = "X";
 char str_Team[10] = "X";
@@ -182,22 +182,34 @@ void tcp_talk(void)
 			parse_receive_string(line);
 		}
 		if (i_GotHit == 1 && i_HitAck == 1)
+		{
 			i_GotHit = 0;
+			i_GotHit_by = 0;
+		}
 		yield();
 		Serial.println(i_ClientID);
 		Serial.println(str_ServerState);
-		Serial.println(i_GotHit);
-		Serial.println(i_GotHit_by);
-
+	//	Serial.println(i_GotHit);
+	//	Serial.println(i_GotHit_by);
+/*
 		Serial.println(i_CountdownValue);
 		Serial.println(str_GameMode);
-		Serial.println(str_Team);
-		Serial.println(i_HitAck);
+		Serial.println(str_GameClock);
 		Serial.println(str_GameScore);
-		Serial.println(i_ClientRank);
 		Serial.println(str_Won);
+		Serial.println(str_Team);
+		Serial.println(i_ClientLife);
+		Serial.println(i_ClientRank);
 		Serial.println(i_ClientPoints);
 		Serial.println(str_KD);
+		Serial.println(i_HitAck);
+		*/
+		Serial.println("-----");
+
+
+
+
+
 	}
 	// else try to reconnect
 	else

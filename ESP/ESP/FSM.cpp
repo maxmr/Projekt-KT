@@ -3,8 +3,11 @@
 #include"ticker_func.h"
 #include "oled_func.h"
 
+int hit_timer = 0;
+
 void State_Machine(void)
 {
+	strcpy(str_ClientState, str_ServerState);
 	if (strcmp(str_ClientState, "PRE-GAME") == 0)
 	{
 		if (oled_flag == 1)
@@ -22,11 +25,16 @@ void State_Machine(void)
 		}
 	}
 
-	else if (strcmp(str_ClientState, "IN-GAME"))
+	else if (strcmp(str_ClientState, "IN-GAME")==0)
 	{
+		Serial.print("oled_flag: ");
+		Serial.println(oled_flag);
+		Serial.print("hit_timer: ");
+		Serial.println(hit_timer);
+
 		if (oled_flag == 1)
 		{
-			if (i_GotHit != 0)
+			if (hit_timer != 0)
 			{
 				update_oled_hit();
 			}
@@ -48,5 +56,6 @@ void State_Machine(void)
 	else
 	{
 	// kein gültiger state? evlt error_function();
+		Serial.println(str_ClientState);
 	}
 }
