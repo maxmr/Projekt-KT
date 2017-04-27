@@ -47,3 +47,15 @@ void update_oled_hit(void)
 	display.drawXbm(0, 0, Skull_Logo_width, Skull_Logo_height, Skull_Logo_bits);
 	display.display();
 }
+
+void update_countdown()
+{
+	display.clear();
+	display.setTextAlignment(TEXT_ALIGN_LEFT);
+	display.setFont(ArialMT_Plain_16);
+	display.drawString(34, 5, str_GameMode);
+	display.setTextAlignment(TEXT_ALIGN_CENTER);
+	display.setFont(Arimo_40);
+	display.drawString(64, 22, String(i_CountdownValue));
+	display.display();
+}
