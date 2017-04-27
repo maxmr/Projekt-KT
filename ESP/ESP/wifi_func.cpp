@@ -181,6 +181,8 @@ void tcp_talk(void)
 			Serial.println(line);
 			parse_receive_string(line);
 		}
+		if (i_GotHit == 1 && i_HitAck == 1)
+			i_GotHit = 0;
 		yield();
 		Serial.println(i_ClientID);
 		Serial.println(str_ServerState);
