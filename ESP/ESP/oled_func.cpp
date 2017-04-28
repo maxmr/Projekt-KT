@@ -9,17 +9,15 @@
 // Initialize the OLED display using Wire library test
 SSD1306  display(0x3c, SDA, SCL);  //Adaruit HUZZAH: GPIO 4 und 5
 
-char	playerStr[] = { "Player:" }, modeStr[] = { "Mode:" }, dBmStr[] = { "dBm" }, rankStr[] = { "Rank:" },
-pointStr[] = { "Points:" }, timeStr[] = { "MM:SS" };
+char	playerStr[] = { "Player:" }, dBmStr[] = { "dBm" }, rankStr[] = { "Rank:" },
+pointStr[] = { "Points:" };
 
 void update_oled_start()
 {
 	display.clear();
-	display.setTextAlignment(TEXT_ALIGN_LEFT);
-	display.setFont(ArialMT_Plain_16);
-	display.drawString(48, 0, modeStr);
-	display.drawString(34, 5, str_GameMode);
 	display.setTextAlignment(TEXT_ALIGN_CENTER);
+	display.setFont(ArialMT_Plain_16);
+	display.drawString(64, 5, str_GameMode);
 	display.setFont(Arimo_40);
 	display.drawString(64, 22, String(i_CountdownValue));
 	display.display();
@@ -38,7 +36,7 @@ void update_oled_active(void)
 
 	display.drawString(94, 18, rankStr);
 	display.setFont(ArialMT_Plain_16);
-	display.drawString(0, 23, timeStr);
+	display.drawString(0, 23, str_GameClock);
 	display.drawString(94, 30, String(i_ClientRank));
 	display.drawHorizontalLine(0, 15, 128);
 
