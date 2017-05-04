@@ -20,8 +20,8 @@ void State_Machine(void)
 	{
 		if (oled_flag == 1)
 		{
-			//update_oled_startinggame();
-			//10Sekunden OLED runterzaehlen -> Funktion von Philipp??	
+			update_oled_start();
+		
 		}
 	}
 

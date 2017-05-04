@@ -21,8 +21,10 @@ Ticker ticker_hit;
 
 int hit_counter = 0;
 
+
+
 // tasks function to set only flags, no long delay, called with ticker with defined intervalls
-void get_RSSI()
+void get_RSSI(void)
 {
 	RSSI_flag = 1;
 }
@@ -54,5 +56,13 @@ void got_hit(void)
 		hit_counter = 0;
 		ticker_hit.detach();
 	}
+}
+
+void ticker_init(void)
+{
+	ticker_get_RSSI.attach(0.5, get_RSSI);
+	ticker_update_oled.attach(0.25, update_oled);
+	ticker_tcp_send.attach_ms(100, send_tcp);
+	ticker_tcp_status.attach_ms(50, get_tcp_status);
 }
 
