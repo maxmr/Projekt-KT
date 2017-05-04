@@ -1,3 +1,5 @@
+#include <hspi_slave.h>
+#include "spislave.h"
 #include "FSM.h"
 #include "ticker_func.h"
 #include "wifi_func.h"
@@ -63,6 +65,16 @@ void loop()
 		hit_timer = 1;
 		ticker_hit.attach(1, got_hit);
 	}
+	/*
+	if (spi.spi_received == 1)		
+	{
+		i_GotHit = 1;
+		i_GotHit_by = spi.readData();
+		hit_timer = 1;
+		ticker_hit.attach(1, got_hit);
+		spi.spi_received = 0;
+	}
+	*/
 	// statemachine aufrufen
 	State_Machine();
 	// important! to give esp time to do background stuff
