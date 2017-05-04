@@ -65,7 +65,7 @@ void loop()
 		hit_timer = 1;
 		ticker_hit.attach(1, got_hit);
 	}
-	/*
+	/*/
 	if (spi.spi_received == 1)		
 	{
 		i_GotHit = 1;
