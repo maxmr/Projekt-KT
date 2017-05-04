@@ -13,7 +13,7 @@
 #
 
 #endif
-
+//
 // Initialize the OLED display using Wire library test
 extern SSD1306  display;  //Adaruit HUZZAH: GPIO 4 und 5
 
