@@ -8,6 +8,8 @@ int hit_timer = 0;
 void State_Machine(void)
 {
 	strcpy(str_ClientState, str_ServerState);
+	if (WiFi.status() != WL_CONNECTED)
+		strcpy(str_ClientState, "NOT-CONNECTED");
 	if (strcmp(str_ClientState, "PRE-GAME") == 0)
 	{
 		if (oled_flag == 1)
@@ -51,6 +53,13 @@ void State_Machine(void)
 		{
 			// funktion zur Bekanntgabe der Points bzw. Kill/Ratio?
 			//update_oled_endgame();
+		}	
+	}
+	else if (strcmp(str_ClientState, "NOT-CONNECTED") == 0)
+	{
+		if (oled_flag == 1)
+		{
+			update_oled_disconnected();
 		}
 	}
 	else

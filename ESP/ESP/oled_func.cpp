@@ -23,6 +23,17 @@ void update_oled_start()
 	display.display();
 }
 
+void update_oled_disconnected()
+{
+	display.clear();
+	display.setTextAlignment(TEXT_ALIGN_CENTER);
+	display.setFont(ArialMT_Plain_10);
+	display.drawString(64, 5, str_ClientState);
+	display.setFont(ArialMT_Plain_10);
+	display.drawString(64, 25,"reconnecting...");
+	display.display();
+}
+
 void update_oled_active(void)
 {
 	display.clear();

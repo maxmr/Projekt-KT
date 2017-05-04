@@ -24,6 +24,7 @@ extern int RSSI_flag;
 extern int oled_flag;
 extern int tcp_send_flag;
 extern int tcp_status_flag;
+extern int reconnect_check_flag;
 
 
 extern Ticker ticker_hit;

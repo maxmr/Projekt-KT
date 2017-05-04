@@ -36,7 +36,7 @@ extern long RSSI_long;
 extern char str_begin[];
 extern char str_end[];
 extern int const i_ClientID;
-extern char str_ClientState[14];
+extern char str_ClientState[16];
 extern int i_GotHit;
 extern int i_GotHit_by;
 extern char str_ServerState[14];

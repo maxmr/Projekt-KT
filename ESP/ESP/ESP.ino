@@ -5,8 +5,8 @@
 
 const char* ssid = "Spieleserver2";
 const char* password = "Gotchawlan";
-const char* host = "192.168.137.1";
-const int Port = 8888;
+const char* host = "10.11.12.1";
+const int Port = 10000;
 
 void setup()
 {
@@ -39,6 +39,15 @@ void loop()
 		RSSI_long = WiFi.RSSI();
 		RSSI_Str = String(RSSI_long);
 		RSSI_flag = 0;
+		if (reconnect_check_flag == 1)
+		{
+			if (RSSI_long < -80)
+			{
+				Serial.println("start reconnect");
+				WiFi.reconnect();
+			}
+			reconnect_check_flag = 0;
+		}
 	}
 	//send tcp every 300ms
 	if (tcp_send_flag == 1)

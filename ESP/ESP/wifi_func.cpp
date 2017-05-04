@@ -18,7 +18,7 @@ char str_dataReceive[200];
 char str_begin[] = "BEGIN";
 char str_end[] = "END!";
 const int i_ClientID = 1;
-char str_ClientState[14] = "PRE-GAME";
+char str_ClientState[16] = "PRE-GAME";
 int i_GotHit = 0;
 int i_GotHit_by = 0;
 char str_ServerState[14] = "PRE-GAME";
