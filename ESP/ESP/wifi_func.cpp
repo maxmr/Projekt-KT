@@ -154,8 +154,8 @@ void parse_receive_string(String tcp_receive)
 				i_HitAck = atoi(p_str);		//get HitAcknowledge
 
 			p_str = strtok_r(NULL, "_", &saveptr);
-			if (p_str != NULL && strcmp(p_str, "END") == 0)
-				Serial.println("Parse finished successfull");
+			if (p_str != NULL && strcmp(p_str, "END") == 0);
+				//Serial.println("Parse finished successfull");
 		}		
 	}
 }
