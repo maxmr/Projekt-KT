@@ -5,6 +5,38 @@
 
 int hit_timer = 0;
 
+void RGB_on()
+{
+	if (strcmp(str_Team, "RED") == 0)
+	{
+		digitalWrite(16, 1);
+		digitalWrite(2, 0);
+	}
+	else if (strcmp(str_Team, "BLUE") == 0)
+	{
+		digitalWrite(16, 0);
+		digitalWrite(2, 1);
+	}
+}
+
+void RGB_off()
+{
+	if (i_GotHit == 1)
+	{
+		digitalWrite(16, 0);
+		digitalWrite(2, 0);
+	}
+}
+
+void RGB_end()
+{
+	if (i_GotHit == 1)
+	{
+		digitalWrite(16, 1);
+		digitalWrite(2, 1);
+	}
+}
+
 void State_Machine(void)
 {
 	strcpy(str_ClientState, str_ServerState);
@@ -26,25 +58,16 @@ void State_Machine(void)
 		{
 			update_oled_start();
 			//hier rgb teamfarbe ansteuern.		
-			if (strcmp(str_Team, "RED") == 0)
-			{
-				digitalWrite(16, 1);
-				digitalWrite(2, 0);
-			}
-			else if (strcmp(str_Team, "BLUE") == 0)
-			{
-				digitalWrite(16, 0);
-				digitalWrite(2, 1);
-			}
+			RGB_on();
 		}
 	}
 
 	else if (strcmp(str_ClientState, "IN-GAME")==0)
 	{
-		/*Serial.print("oled_flag: ");
+		Serial.print("oled_flag: ");
 		Serial.println(oled_flag);
 		Serial.print("hit_timer: ");
-		Serial.println(hit_timer);*/
+		Serial.println(hit_timer);
 
 		if (oled_flag == 1)
 		{
@@ -52,10 +75,13 @@ void State_Machine(void)
 			{
 				update_oled_hit();
 				//rgb' s ausschalten
+				RGB_off();
 			}
 			else
 			{
 				update_oled_active();
+				//rgb' s einschalten
+				RGB_on();
 			}
 			oled_flag = 0;
 		}
@@ -67,6 +93,7 @@ void State_Machine(void)
 			//funktion zur Bekanntgabe der Points bzw. Kill/Ratio?
 			//hier ruecksetzen der rgb farben machen!!! bzw. ausmachen!!! 
 			//update_oled_endgame();
+			RGB_end();
 		}	
 	}
 	else if (strcmp(str_ClientState, "NOT-CONNECTED") == 0)
