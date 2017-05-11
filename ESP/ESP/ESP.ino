@@ -72,6 +72,7 @@ void loop()
 	{
 		i_GotHit = 1;
 		i_GotHit_by = spi.readData();
+		Serial.println(i_GotHit_by);
 		if (i_GotHit_by > Amount_Players)
 		{
 			i_GotHit = 0;
