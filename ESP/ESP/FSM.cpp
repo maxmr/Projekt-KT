@@ -9,13 +9,13 @@ void RGB_on()
 {
 	if (strcmp(str_Team, "RED") == 0)
 	{
-		digitalWrite(16, 1);
-		digitalWrite(2, 0);
+		digitalWrite(16, 0);
+		digitalWrite(2, 1);
 	}
 	else if (strcmp(str_Team, "BLUE") == 0)
 	{
-		digitalWrite(16, 0);
-		digitalWrite(2, 1);
+		digitalWrite(16, 1);
+		digitalWrite(2, 0);
 	}
 }
 
@@ -23,8 +23,8 @@ void RGB_off()
 {
 	if (i_GotHit == 1)
 	{
-		digitalWrite(16, 0);
-		digitalWrite(2, 0);
+		digitalWrite(16, 1);
+		digitalWrite(2, 1);
 	}
 }
 
@@ -32,8 +32,8 @@ void RGB_end()
 {
 	if (i_GotHit == 1)
 	{
-		digitalWrite(16, 1);
-		digitalWrite(2, 1);
+		digitalWrite(16, 0);
+		digitalWrite(2, 0);
 	}
 }
 
