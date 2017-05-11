@@ -20,6 +20,8 @@ void setup()
 	//Output pins for MOSFETs for RGBs
 	pinMode(16, OUTPUT);	    //for rgb colour red
 	pinMode(2, OUTPUT);			//for rgb colour blue
+	//Enable
+	pinMode(0, OUTPUT);			//enable for arduino: allows arduino to shoot!
 
 	display.init();
 	// display.flipScreenVertically();
@@ -30,7 +32,6 @@ void setup()
 	// client.setNoDelay(true);
 	// bind function to ticker tasks
 	ticker_init();
-	spi.init();
 }
 
 void loop()
