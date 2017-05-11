@@ -71,6 +71,7 @@ void loop()
 	{
 		i_GotHit = 1;
 		i_GotHit_by = spi.readData();
+		Serial.println(i_GotHit_by);
 		hit_timer = 1;
 		ticker_hit.attach(1, got_hit);
 		spi.spi_received = 0;

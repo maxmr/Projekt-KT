@@ -28,6 +28,7 @@ void ESPSlave::init()
 
 		spi.counter++;
 		spi.spi_received = 1;
+		Serial.println(spi.counter);
 	});
 	data[32] = 0;
 	begin();
