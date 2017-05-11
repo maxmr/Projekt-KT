@@ -31,10 +31,10 @@ void State_Machine(void)
 
 	else if (strcmp(str_ClientState, "IN-GAME")==0)
 	{
-		Serial.print("oled_flag: ");
+		/*Serial.print("oled_flag: ");
 		Serial.println(oled_flag);
 		Serial.print("hit_timer: ");
-		Serial.println(hit_timer);
+		Serial.println(hit_timer);*/
 
 		if (oled_flag == 1)
 		{

@@ -187,8 +187,8 @@ void tcp_talk(void)
 			//i_GotHit_by = 0;
 		}
 		yield();
-		Serial.println(i_ClientID);
-		Serial.println(str_ServerState);
+		//Serial.println(i_ClientID);
+		//Serial.println(str_ServerState);
 	//	Serial.println(i_GotHit);
 	//	Serial.println(i_GotHit_by);
 /*
