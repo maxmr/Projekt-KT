@@ -167,8 +167,8 @@ void tcp_talk(void)
 	{
 		tcp_status = "TCP connected";
 		build_send_string();
-		Serial.print("data to send: ");
-		Serial.println(str_dataSend);
+		//Serial.print("data to send: ");
+		//Serial.println(str_dataSend);
 
 		// This will send the request to the server
 		client.print(str_dataSend);
@@ -178,7 +178,7 @@ void tcp_talk(void)
 			String line = client.readStringUntil('!');
 			client.flush();
 
-			Serial.println(line);
+			//Serial.println(line);
 			parse_receive_string(line);
 		}
 		if (i_GotHit == 1 && i_HitAck == 1)
@@ -204,7 +204,7 @@ void tcp_talk(void)
 		Serial.println(str_KD);
 		Serial.println(i_HitAck);
 		*/
-		Serial.println("-----");
+		//Serial.println("-----");
 
 
 
