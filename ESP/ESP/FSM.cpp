@@ -61,6 +61,7 @@ void State_Machine(void)
 		{
 			//update_oled_pregame(); Hier evtl Team Bekanntgabe? Oder Punkteanzeige (also wie viel pkt pro kill oder so?)
 			update_oled_wifidata();
+			RGB_off();
 			//ard_en_off();
 		}
 	}
@@ -70,7 +71,8 @@ void State_Machine(void)
 		{
 			update_oled_start();
 			//hier rgb teamfarbe ansteuern.		
-			RGB_on();
+			//RGB_on();
+			RGB_off();
 			//ard_en_off();
 		}
 	}
@@ -108,7 +110,8 @@ void State_Machine(void)
 			//funktion zur Bekanntgabe der Points bzw. Kill/Ratio?
 			//hier ruecksetzen der rgb farben machen!!! bzw. ausmachen!!! 
 			//update_oled_endgame();
-			RGB_end();
+			//RGB_end();
+			RGB_off();
 			//ard_en_off();
 		}	
 	}
@@ -117,6 +120,7 @@ void State_Machine(void)
 		if (oled_flag == 1)
 		{
 			update_oled_disconnected();
+			RGB_off();
 			//ard_en_off();
 		}
 	}
@@ -124,5 +128,6 @@ void State_Machine(void)
 	{
 	// kein gültiger state? evlt error_function();
 		Serial.println(str_ClientState);
+		RGB_off();
 	}
 }
