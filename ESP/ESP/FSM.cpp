@@ -25,7 +25,17 @@ void State_Machine(void)
 		if (oled_flag == 1)
 		{
 			update_oled_start();
-		
+			//hier rgb teamfarbe ansteuern.		
+			if (strcmp(str_Team, "RED") == 0)
+			{
+				digitalWrite(16, 1);
+				digitalWrite(2, 0);
+			}
+			else if (strcmp(str_Team, "BLUE") == 0)
+			{
+				digitalWrite(16, 0);
+				digitalWrite(2, 1);
+			}
 		}
 	}
 
@@ -41,6 +51,7 @@ void State_Machine(void)
 			if (hit_timer != 0)
 			{
 				update_oled_hit();
+				//rgb' s ausschalten
 			}
 			else
 			{
@@ -53,7 +64,8 @@ void State_Machine(void)
 	{
 		if (oled_flag == 1)
 		{
-			// funktion zur Bekanntgabe der Points bzw. Kill/Ratio?
+			//funktion zur Bekanntgabe der Points bzw. Kill/Ratio?
+			//hier ruecksetzen der rgb farben machen!!! bzw. ausmachen!!! 
 			//update_oled_endgame();
 		}	
 	}

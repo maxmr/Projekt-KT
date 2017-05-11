@@ -15,7 +15,11 @@ void setup()
 {
 	Serial.begin(115200);
 	delay(10);
-	pinMode(16, INPUT);
+	//pinMode(16, INPUT);		//for debuging spi, not urgent anymore
+	
+	//Output pins for MOSFETs for RGBs
+	pinMode(16, OUTPUT);	    //for rgb colour red
+	pinMode(2, OUTPUT);			//for rgb colour blue
 
 	display.init();
 	// display.flipScreenVertically();
