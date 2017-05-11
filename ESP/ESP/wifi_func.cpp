@@ -154,8 +154,8 @@ void parse_receive_string(String tcp_receive)
 				i_HitAck = atoi(p_str);		//get HitAcknowledge
 
 			p_str = strtok_r(NULL, "_", &saveptr);
-			if (p_str != NULL && strcmp(p_str, "END") == 0)
-				Serial.println("Parse finished successfull");
+			if (p_str != NULL && strcmp(p_str, "END") == 0);
+				//Serial.println("Parse finished successfull");
 		}		
 	}
 }
@@ -167,8 +167,8 @@ void tcp_talk(void)
 	{
 		tcp_status = "TCP connected";
 		build_send_string();
-		Serial.print("data to send: ");
-		Serial.println(str_dataSend);
+		//Serial.print("data to send: ");
+		//Serial.println(str_dataSend);
 
 		// This will send the request to the server
 		client.print(str_dataSend);
@@ -178,7 +178,7 @@ void tcp_talk(void)
 			String line = client.readStringUntil('!');
 			client.flush();
 
-			Serial.println(line);
+			//Serial.println(line);
 			parse_receive_string(line);
 		}
 		if (i_GotHit == 1 && i_HitAck == 1)
@@ -187,8 +187,8 @@ void tcp_talk(void)
 			//i_GotHit_by = 0;
 		}
 		yield();
-		Serial.println(i_ClientID);
-		Serial.println(str_ServerState);
+		//Serial.println(i_ClientID);
+		//Serial.println(str_ServerState);
 	//	Serial.println(i_GotHit);
 	//	Serial.println(i_GotHit_by);
 /*
@@ -204,7 +204,7 @@ void tcp_talk(void)
 		Serial.println(str_KD);
 		Serial.println(i_HitAck);
 		*/
-		Serial.println("-----");
+		//Serial.println("-----");
 
 
 
