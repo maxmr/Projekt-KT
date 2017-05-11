@@ -36,7 +36,7 @@ void RGB_end()
 		digitalWrite(2, 1);
 	}
 }
-
+/*
 void ard_en_on()
 {
 	digitalWrite(0, 1);
@@ -46,7 +46,7 @@ void ard_en_off()
 {
 	digitalWrite(0, 0);
 }
-
+*/
 void State_Machine(void)
 {
 	strcpy(str_ClientState, str_ServerState);
