@@ -32,6 +32,7 @@ void setup()
 	// client.setNoDelay(true);
 	// bind function to ticker tasks
 	ticker_init();
+	spi.init();
 }
 
 void loop()
