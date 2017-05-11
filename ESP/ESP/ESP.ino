@@ -9,6 +9,7 @@ const char* ssid = "Spieleserver2";
 const char* password = "Gotchawlan";
 const char* host = "10.11.12.1";
 const int Port = 10000;
+const int Amount_Players = 16;
 
 void setup()
 {
@@ -71,9 +72,17 @@ void loop()
 	{
 		i_GotHit = 1;
 		i_GotHit_by = spi.readData();
-		hit_timer = 1;
-		ticker_hit.attach(1, got_hit);
-		spi.spi_received = 0;
+		if (i_GotHit_by > Amount_Players)
+		{
+			i_GotHit = 0;
+			i_GotHit_by = 0;
+		}
+		else
+		{
+			hit_timer = 1;
+			ticker_hit.attach(1, got_hit);
+			spi.spi_received = 0;
+		}
 	}
 	
 	// statemachine aufrufen
