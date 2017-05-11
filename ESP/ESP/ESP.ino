@@ -58,6 +58,7 @@ void loop()
 		tcp_send_flag = 0;
 	}
 	//for testing without spi
+	/*/
 	if (digitalRead(16) == HIGH)
 	{
 		i_GotHit = 1;
@@ -74,7 +75,7 @@ void loop()
 		ticker_hit.attach(1, got_hit);
 		spi.spi_received = 0;
 	}
-	*/
+	
 	// statemachine aufrufen
 	State_Machine();
 	// important! to give esp time to do background stuff

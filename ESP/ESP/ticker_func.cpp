@@ -58,7 +58,7 @@ void got_hit(void)
 	if (hit_counter >= 4)
 	{
 		hit_timer = 0;
-		i_GotHit = 0;
+		//i_GotHit = 0;
 		i_GotHit_by = 0;
 		hit_counter = 0;
 		ticker_hit.detach();

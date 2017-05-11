@@ -184,7 +184,7 @@ void tcp_talk(void)
 		if (i_GotHit == 1 && i_HitAck == 1)
 		{
 			i_GotHit = 0;
-			i_GotHit_by = 0;
+			//i_GotHit_by = 0;
 		}
 		yield();
 		Serial.println(i_ClientID);

@@ -10,6 +10,8 @@ void State_Machine(void)
 	strcpy(str_ClientState, str_ServerState);
 	if (WiFi.status() != WL_CONNECTED)
 		strcpy(str_ClientState, "NOT-CONNECTED");
+	if (tcp_connected == 0)
+		strcpy(str_ClientState, "PRE-GAME");
 	if (strcmp(str_ClientState, "PRE-GAME") == 0)
 	{
 		if (oled_flag == 1)
