@@ -9,13 +9,13 @@ void RGB_on()
 {
 	if (strcmp(str_Team, "RED") == 0)
 	{
-		digitalWrite(16, 0);
-		digitalWrite(2, 1);
+		digitalWrite(16, 1);
+		digitalWrite(2, 0);
 	}
 	else if (strcmp(str_Team, "BLUE") == 0)
 	{
-		digitalWrite(16, 1);
-		digitalWrite(2, 0);
+		digitalWrite(16, 0);
+		digitalWrite(2, 1);
 	}
 }
 
@@ -23,8 +23,8 @@ void RGB_off()
 {
 	if (i_GotHit == 1)
 	{
-		digitalWrite(16, 1);
-		digitalWrite(2, 1);
+		digitalWrite(16, 0);
+		digitalWrite(2, 0);
 	}
 }
 
@@ -32,19 +32,19 @@ void RGB_end()
 {
 	if (i_GotHit == 1)
 	{
-		digitalWrite(16, 0);
-		digitalWrite(2, 0);
+		digitalWrite(16, 1);
+		digitalWrite(2, 1);
 	}
 }
 
 void ard_en_on()
 {
-	digitalWrite(0, 0);
+	digitalWrite(0, 1);
 }
 
 void ard_en_off()
 {
-	digitalWrite(0, 1);
+	digitalWrite(0, 0);
 }
 
 void State_Machine(void)
