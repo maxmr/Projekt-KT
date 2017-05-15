@@ -21,11 +21,10 @@ void RGB_on()
 
 void RGB_off()
 {
-	if (i_GotHit == 1)
-	{
+
 		digitalWrite(16, 0);
 		digitalWrite(2, 0);
-	}
+	
 }
 
 void RGB_end()
