@@ -10,7 +10,7 @@
 SSD1306  display(0x3c, SDA, SCL);  //Adaruit HUZZAH: GPIO 4 und 5
 
 char	playerStr[] = { "Player:" }, dBmStr[] = { "dBm" }, rankStr[] = { "Rank:" },
-pointStr[] = { "Points:" }, str_hitBy[] = { "Hit by: Player " };
+pointStr[] = { "Points:" }, str_hitBy[] = { "Hit by: Player " }, scoreStr[] = { "Score:" }, strKD[] = { "K/D:" };
 
 void update_oled_start()
 {
@@ -69,5 +69,33 @@ void update_oled_hit(void)
 	display.drawString(60, 50, str_hitBy);
 	display.drawString(100, 50, String(i_GotHit_by));
 	display.drawXbm(16, 0, Skull_Logo_width, Skull_Logo_height, Skull_Logo_bits);
+	display.display();
+}
+
+void update_oled_end(void)
+{
+	display.clear();
+
+	display.setTextAlignment(TEXT_ALIGN_CENTER);
+	display.setFont(ArialMT_Plain_24);
+	display.drawString(64, 0, String(str_end));
+	display.drawHorizontalLine(0, 25, 128);
+	display.drawVerticalLine(64, 25, 71);
+
+	display.setTextAlignment(TEXT_ALIGN_LEFT);
+	display.setFont(ArialMT_Plain_16);
+	display.drawString(0, 27, pointStr);
+	display.drawString(50, 27, String(i_ClientPoints));
+
+	display.drawString(0, 47, scoreStr);
+	display.drawString(50, 47, String(str_KD));
+
+	display.drawString(68, 27, strKD);
+	display.drawString(115, 27, String(str_GameScore));
+
+	display.drawString(68, 47, rankStr);
+	display.drawString(115, 47, String(i_ClientRank));
+
+
 	display.display();
 }
