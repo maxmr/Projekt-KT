@@ -75,15 +75,16 @@ void loop()
 		ticker_hit.attach(1, got_hit);
 	}
 	/*/
-	if (spi.spi_received == 1)		
+	if (spi.spi_received == 1)
 	{
 		i_GotHit = 1;
 		i_GotHit_by = spi.readData();
 		Serial.println(i_GotHit_by);
-		if (i_GotHit_by > Amount_Players)
+		if (i_GotHit_by > Amount_Players || (strcmp(str_ClientState, "IN-GAME") == 0))
 		{
 			i_GotHit = 0;
 			i_GotHit_by = 0;
+			spi.spi_received = 0;
 		}
 		else
 		{

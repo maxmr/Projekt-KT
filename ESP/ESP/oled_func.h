@@ -21,4 +21,5 @@ void update_oled_hit(void);
 void update_oled_active(void);
 void update_oled_start(void);
 void update_oled_disconnected(void);
+void update_oled_end(void);
 
