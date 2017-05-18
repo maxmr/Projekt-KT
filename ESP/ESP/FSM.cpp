@@ -104,7 +104,7 @@ void State_Machine(void)
 			oled_flag = 0;
 		}
 	}
-	else if (strcmp(str_ClientState, "END-GAME") == 0)
+	else if (strcmp(str_ClientState, "POST-GAME") == 0)
 	{
 		if (oled_flag == 1)
 		{
