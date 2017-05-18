@@ -236,16 +236,4 @@ void tcp_reconnect(void)
 }
 
 //just for debugging in development
-void update_oled_wifidata(void)
-{
-	display.clear();
-	display.drawString(0, 0, "Wifi connected");
-	display.drawString(0, 12, "IP address: ");
-	String IP = WiFi.localIP().toString();
-	display.drawString(0, 24, IP);
-	display.drawString(0, 36, "RSSI: ");
-	display.drawString(40, 36, RSSI_Str);
-	display.drawString(65, 36, "dBm");
-	display.drawString(0, 48, tcp_status);
-	display.display();
-}
+

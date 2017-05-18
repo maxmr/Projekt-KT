@@ -59,7 +59,7 @@ void State_Machine(void)
 		if (oled_flag == 1)
 		{
 			//update_oled_pregame(); Hier evtl Team Bekanntgabe? Oder Punkteanzeige (also wie viel pkt pro kill oder so?)
-			update_oled_wifidata();
+			update_oled_pregame();
 			RGB_off();
 			//ard_en_off();
 		}
@@ -108,7 +108,7 @@ void State_Machine(void)
 		{
 			//funktion zur Bekanntgabe der Points bzw. Kill/Ratio?
 			//hier ruecksetzen der rgb farben machen!!! bzw. ausmachen!!! 
-			//update_oled_endgame();
+			update_oled_end();
 			//RGB_end();
 			RGB_off();
 			//ard_en_off();
