@@ -1,3 +1,6 @@
+// ESP Code fuer Projekt Kommunikationstechnik - Lasertag Game - Hochschule München
+
+
 #include <hspi_slave.h>
 #include "spislave.h"
 #include "FSM.h"
@@ -15,16 +18,16 @@ void setup()
 {
 	Serial.begin(115200);
 	delay(10);
-	//pinMode(16, INPUT);		//for debuging spi, not urgent anymore
+
 	
 	//Output pins for MOSFETs for RGBs
 	pinMode(16, OUTPUT);	    //for rgb colour red
 	pinMode(2, OUTPUT);			//for rgb colour blue
 	//Enable
-//	pinMode(0, OUTPUT);			//enable for arduino: allows arduino to shoot!
+	pinMode(0, OUTPUT);			//enable for arduino: allows arduino to shoot!
 
 	display.init();
-	// display.flipScreenVertically();
+	//display.flipScreenVertically();
 	display.setContrast(255);
 	display.setFont(ArialMT_Plain_10);
 
@@ -65,22 +68,13 @@ void loop()
 		tcp_talk();
 		tcp_send_flag = 0;
 	}
-	//for testing without spi
-	/*/
-	if (digitalRead(16) == HIGH)
-	{
-		i_GotHit = 1;
-		i_GotHit_by = 3;
-		hit_timer = 1;
-		ticker_hit.attach(1, got_hit);
-	}
-	/*/
+
 	if (spi.spi_received == 1)
 	{
 		i_GotHit = 1;
 		i_GotHit_by = spi.readData();
 		Serial.println(i_GotHit_by);
-		if (i_GotHit_by > Amount_Players || (strcmp(str_ClientState, "IN-GAME") == 0))
+		if (i_GotHit_by > Amount_Players || (strcmp(str_ClientState, "IN-GAME") != 0))
 		{
 			i_GotHit = 0;
 			i_GotHit_by = 0;

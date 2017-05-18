@@ -17,7 +17,7 @@
 void connect_wifi(void);
 void tcp_reconnect(void);
 void tcp_talk(void);
-void update_oled_wifidata(void);
+
 
 extern WiFiClient client;
 extern SSD1306 display;

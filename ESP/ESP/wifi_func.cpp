@@ -12,12 +12,15 @@ int tcp_connected = 0;
 String RSSI_Str = "XX";
 long RSSI_long = 0;
 
+// set client ID - hardcoded
+const int i_ClientID = 1;
+
 char str_dataSend[200];
 char str_dataReceive[200];
 
 char str_begin[] = "BEGIN";
 char str_end[] = "END!";
-const int i_ClientID = 3;
+
 char str_ClientState[16] = "PRE-GAME";
 int i_GotHit = 0;
 int i_GotHit_by = 0;
@@ -53,7 +56,7 @@ void connect_wifi(void)
 
 	while (WiFi.status() != WL_CONNECTED)
 	{
-		delay(500);
+		delay(50);
 		Serial.print(".");
 	}
 
@@ -167,9 +170,6 @@ void tcp_talk(void)
 	{
 		tcp_status = "TCP connected";
 		build_send_string();
-		//Serial.print("data to send: ");
-		//Serial.println(str_dataSend);
-
 		// This will send the request to the server
 		client.print(str_dataSend);
 
@@ -177,53 +177,26 @@ void tcp_talk(void)
 		{
 			String line = client.readStringUntil('!');
 			client.flush();
-
-			//Serial.println(line);
 			parse_receive_string(line);
 		}
 		if (i_GotHit == 1 && i_HitAck == 1)
 		{
 			i_GotHit = 0;
-			//i_GotHit_by = 0;
 		}
 		yield();
-		//Serial.println(i_ClientID);
-		//Serial.println(str_ServerState);
-	//	Serial.println(i_GotHit);
-	//	Serial.println(i_GotHit_by);
-/*
-		Serial.println(i_CountdownValue);
-		Serial.println(str_GameMode);
-		Serial.println(str_GameClock);
-		Serial.println(str_GameScore);
-		Serial.println(str_Won);
-		Serial.println(str_Team);
-		Serial.println(i_ClientLife);
-		Serial.println(i_ClientRank);
-		Serial.println(i_ClientPoints);
-		Serial.println(str_KD);
-		Serial.println(i_HitAck);
-		*/
-		//Serial.println("-----");
-
-
-
-
-
 	}
 	// else try to reconnect
 	else
 	{
 		tcp_reconnect();
-	}
-		
+	}		
 }
 
 void tcp_reconnect(void)
 {
 	tcp_status = "TCP not connected";
-	Serial.print("connecting to ");
-	Serial.println(host);
+//	Serial.print("connecting to ");
+//	Serial.println(host);
 
 	if (client.connect(host, Port))
 	{
@@ -235,17 +208,5 @@ void tcp_reconnect(void)
 
 }
 
-//just for debugging in development
-void update_oled_wifidata(void)
-{
-	display.clear();
-	display.drawString(0, 0, "Wifi connected");
-	display.drawString(0, 12, "IP address: ");
-	String IP = WiFi.localIP().toString();
-	display.drawString(0, 24, IP);
-	display.drawString(0, 36, "RSSI: ");
-	display.drawString(40, 36, RSSI_Str);
-	display.drawString(65, 36, "dBm");
-	display.drawString(0, 48, tcp_status);
-	display.display();
-}
+
+
