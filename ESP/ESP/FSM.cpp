@@ -29,29 +29,10 @@ void RGB_off()
 	
 }
 
-void RGB_end()
-{
-	if (i_GotHit == 1)
-	{
-		digitalWrite(16, 1);
-	//	digitalWrite(2, 1);
-	}
-}
-/*
-void ard_en_on()
-{
-	digitalWrite(0, 1);
-}
 
-void ard_en_off()
-{
-	digitalWrite(0, 0);
-}
-*/
 void State_Machine(void)
 {
 	strcpy(str_ClientState, str_ServerState);
-	//ard_en_off();
 	if (WiFi.status() != WL_CONNECTED)
 		strcpy(str_ClientState, "NOT-CONNECTED");
 	if (tcp_connected == 0)
@@ -60,10 +41,8 @@ void State_Machine(void)
 	{
 		if (oled_flag == 1)
 		{
-			//update_oled_pregame(); Hier evtl Team Bekanntgabe? Oder Punkteanzeige (also wie viel pkt pro kill oder so?)
 			update_oled_pregame();
 			RGB_off();
-			//ard_en_off();
 		}
 	}
 	else if (strcmp(str_ClientState, "STARTING-GAME") == 0)
@@ -71,35 +50,23 @@ void State_Machine(void)
 		if (oled_flag == 1)
 		{
 			update_oled_start();
-			//hier rgb teamfarbe ansteuern.		
-			//RGB_on();
 			RGB_off();
-			//ard_en_off();
 		}
 	}
 
 	else if (strcmp(str_ClientState, "IN-GAME")==0)
 	{
-	/*	Serial.print("oled_flag: ");
-		Serial.println(oled_flag);
-		Serial.print("hit_timer: ");
-		Serial.println(hit_timer);*/
-
 		if (oled_flag == 1)
 		{
 			if (hit_timer != 0)
 			{
 				update_oled_hit();
-				//rgb' s ausschalten
 				RGB_off();
-				//ard_en_off();
 			}
 			else
 			{
 				update_oled_active();
-				//rgb' s einschalten
 				RGB_on();
-				//ard_en_on();
 			}
 			oled_flag = 0;
 		}
@@ -108,12 +75,8 @@ void State_Machine(void)
 	{
 		if (oled_flag == 1)
 		{
-			//funktion zur Bekanntgabe der Points bzw. Kill/Ratio?
-			//hier ruecksetzen der rgb farben machen!!! bzw. ausmachen!!! 
 			update_oled_end();
-			//RGB_end();
 			RGB_off();
-			//ard_en_off();
 		}	
 	}
 	else if (strcmp(str_ClientState, "NOT-CONNECTED") == 0)
@@ -122,12 +85,10 @@ void State_Machine(void)
 		{
 			update_oled_disconnected();
 			RGB_off();
-			//ard_en_off();
 		}
 	}
 	else
 	{
-	// kein gültiger state? evlt error_function();
 		Serial.println(str_ClientState);
 		RGB_off();
 	}
