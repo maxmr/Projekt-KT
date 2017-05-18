@@ -12,12 +12,15 @@ int tcp_connected = 0;
 String RSSI_Str = "XX";
 long RSSI_long = 0;
 
+// set client ID - hardcoded
+const int i_ClientID = 1;
+
 char str_dataSend[200];
 char str_dataReceive[200];
 
 char str_begin[] = "BEGIN";
 char str_end[] = "END!";
-const int i_ClientID = 3;
+
 char str_ClientState[16] = "PRE-GAME";
 int i_GotHit = 0;
 int i_GotHit_by = 0;

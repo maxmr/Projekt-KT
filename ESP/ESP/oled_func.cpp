@@ -107,6 +107,8 @@ void update_oled_pregame(void)
 	display.drawString(0, 12, "IP address: ");
 	String IP = WiFi.localIP().toString();
 	display.drawString(0, 24, IP);
+	display.drawString(80, 24, "ID: ");
+	display.drawString(100, 24, String(i_ClientID));
 	display.drawString(0, 36, "RSSI: ");
 	display.drawString(40, 36, RSSI_Str);
 	display.drawString(65, 36, "dBm");

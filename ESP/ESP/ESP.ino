@@ -21,7 +21,7 @@ void setup()
 	pinMode(16, OUTPUT);	    //for rgb colour red
 	pinMode(2, OUTPUT);			//for rgb colour blue
 	//Enable
-//	pinMode(0, OUTPUT);			//enable for arduino: allows arduino to shoot!
+	pinMode(0, OUTPUT);			//enable for arduino: allows arduino to shoot!
 
 	display.init();
 	// display.flipScreenVertically();
@@ -80,7 +80,7 @@ void loop()
 		i_GotHit = 1;
 		i_GotHit_by = spi.readData();
 		Serial.println(i_GotHit_by);
-		if (i_GotHit_by > Amount_Players || (strcmp(str_ClientState, "IN-GAME") == 0))
+		if (i_GotHit_by > Amount_Players || (strcmp(str_ClientState, "IN-GAME") != 0))
 		{
 			i_GotHit = 0;
 			i_GotHit_by = 0;

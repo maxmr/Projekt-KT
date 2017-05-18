@@ -17,6 +17,7 @@ void RGB_on()
 		digitalWrite(16, 0);
 		digitalWrite(2, 1);
 	}
+	digitalWrite(0, 1);
 }
 
 void RGB_off()
@@ -24,6 +25,7 @@ void RGB_off()
 
 		digitalWrite(16, 0);
 		digitalWrite(2, 0);
+		digitalWrite(0, 0);
 	
 }
 
@@ -32,7 +34,7 @@ void RGB_end()
 	if (i_GotHit == 1)
 	{
 		digitalWrite(16, 1);
-		digitalWrite(2, 1);
+	//	digitalWrite(2, 1);
 	}
 }
 /*
