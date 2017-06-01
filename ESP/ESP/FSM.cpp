@@ -65,7 +65,13 @@ void State_Machine(void)
 			}
 			else
 			{
-				update_oled_active();
+				if (strcmp(str_GameMode, "Team Deathmatch") == 0)
+					update_oled_active_TM();
+				else 	if (strcmp(str_GameMode, "Free For All") == 0)
+					update_oled_active_FFA();
+				else
+					update_oled_active_TM();
+
 				RGB_on();
 			}
 			oled_flag = 0;
@@ -75,7 +81,12 @@ void State_Machine(void)
 	{
 		if (oled_flag == 1)
 		{
-			update_oled_end();
+			if (strcmp(str_GameMode, "Team Deathmatch") == 0)
+				update_oled_end_TM();
+			else 	if (strcmp(str_GameMode, "Free For All") == 0)
+				update_oled_end_FFA();
+			else
+				update_oled_end_TM();
 			RGB_off();
 		}	
 	}

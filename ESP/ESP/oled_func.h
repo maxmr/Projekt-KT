@@ -18,9 +18,11 @@
 extern SSD1306  display;  //Adaruit HUZZAH: GPIO 4 und 5
 
 void update_oled_hit(void);
-void update_oled_active(void);
+void update_oled_active_TM(void);
+void update_oled_active_FFA(void);
 void update_oled_start(void);
 void update_oled_disconnected(void);
-void update_oled_end(void);
+void update_oled_end_TM(void);
+void update_oled_end_FFA(void);
 void update_oled_pregame(void);
 
