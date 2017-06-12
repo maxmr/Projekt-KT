@@ -12,7 +12,7 @@ const char* ssid = "Spieleserver2";
 const char* password = "Gotchawlan";
 const char* host = "10.11.12.1";
 const int Port = 10000;
-const int Amount_Players = 16;
+const int Amount_Players = 8;
 
 void setup()
 {

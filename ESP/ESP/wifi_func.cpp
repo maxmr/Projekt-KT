@@ -13,7 +13,7 @@ String RSSI_Str = "XX";
 long RSSI_long = 0;
 
 // set client ID - hardcoded
-const int i_ClientID = 1;
+const int i_ClientID = 2;
 
 char str_dataSend[200];
 char str_dataReceive[200];
