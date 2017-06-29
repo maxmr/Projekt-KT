@@ -29,6 +29,17 @@ void RGB_off()
 	
 }
 
+void RGB_end()
+{
+
+	digitalWrite(16, 1);
+	digitalWrite(2, 1);
+	digitalWrite(0, 0);
+
+}
+
+
+
 
 void State_Machine(void)
 {
@@ -87,7 +98,7 @@ void State_Machine(void)
 				update_oled_end_FFA();
 			else
 				update_oled_end_TM();
-			RGB_off();
+			RGB_end();
 		}	
 	}
 	else if (strcmp(str_ClientState, "NOT-CONNECTED") == 0)

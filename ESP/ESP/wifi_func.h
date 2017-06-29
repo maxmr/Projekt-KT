@@ -11,6 +11,9 @@
 #include <ESP8266WiFi.h>
 #include <SSD1306.h> // alias for `#include "SSD1306Wire.h"`
 
+#include <WiFiUdp.h>
+#include <ArduinoOTA.h>
+
 
 #endif
 

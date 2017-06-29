@@ -4,6 +4,9 @@
 
 #include "wifi_func.h"
 #include <string.h>
+#include <ESP8266mDNS.h>
+#include <WiFiUdp.h>
+
 
 WiFiClient client;
 
@@ -13,7 +16,7 @@ String RSSI_Str = "XX";
 long RSSI_long = 0;
 
 // set client ID - hardcoded
-const int i_ClientID = 2;
+const int i_ClientID = 7;
 
 char str_dataSend[200];
 char str_dataReceive[200];
@@ -60,6 +63,27 @@ void connect_wifi(void)
 		Serial.print(".");
 	}
 
+	ArduinoOTA.onStart([]() {
+		display.clear();
+		display.setFont(ArialMT_Plain_10);
+		display.setTextAlignment(TEXT_ALIGN_CENTER_BOTH);
+		display.drawString(DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2 - 10, "OTA Update");
+		display.display();
+	});
+	ArduinoOTA.onEnd([]() {
+		display.clear();
+		display.setFont(ArialMT_Plain_10);
+		display.setTextAlignment(TEXT_ALIGN_CENTER_BOTH);
+		display.drawString(DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2, "Restart");
+		display.display();
+	});
+	ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {
+		display.drawProgressBar(4, 32, 120, 8, progress / (total / 100));
+		display.display();
+	});
+
+	
+	ArduinoOTA.begin();
 	Serial.println("");
 	Serial.println("WiFi connected");
 	Serial.println("IP address: ");

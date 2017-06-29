@@ -1,6 +1,8 @@
 // ESP Code fuer Projekt Kommunikationstechnik - Lasertag Game - Hochschule München
 
 
+#include <ESP8266mDNS.h>
+#include <ArduinoOTA.h>
 #include <hspi_slave.h>
 #include "spislave.h"
 #include "FSM.h"
@@ -74,7 +76,7 @@ void loop()
 		i_GotHit = 1;
 		i_GotHit_by = spi.readData();
 		Serial.println(i_GotHit_by);
-		if (i_GotHit_by > Amount_Players || (strcmp(str_ClientState, "IN-GAME") != 0))
+		if (i_GotHit_by > Amount_Players || (strcmp(str_ClientState, "IN-GAME") != 0) || i_GotHit_by == 0)
 		{
 			i_GotHit = 0;
 			i_GotHit_by = 0;
@@ -92,4 +94,5 @@ void loop()
 	State_Machine();
 	// important! to give esp time to do background stuff
 	yield();
+	ArduinoOTA.handle();
 }
